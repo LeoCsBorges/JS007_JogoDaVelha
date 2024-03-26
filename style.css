@@ -20,6 +20,10 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    color: inherit;
+}
+
 .content-wrapper {
     margin: auto;
     overflow: hidden;
