@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Jogo da Velha</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+                <div class="header-head flex-column">
+                    <h1>Jogo da Velha</h1>
+                    <h2># Enfrente este desafio! #</h2>
+                </div>
+                <div class="header-fields flex-row">
+                    <div class="fields-items flex-row">
+                        <label class="flex-column" for="firstPlayer">
+                            <div class="label-title">
+                                1º Jogador:
+                            </div>
+                            
+                            <input type="text" name="firstPlayer" id="firstPlayer" maxlength="10" placeholder="Digite o nome do 1º jogador" required>
+                        </label>
+                        <label class="flex-column" for="secondPlayer">
+                            <div class="label-title">
+                                2º Jogador:
+                            </div>
+                            <input type="text" name="secondPlayer" id="secondPlayer" maxlength="10" placeholder="Digite o nome do 2º jogador" required>
+                            <div id="teste"></div>
+                        </label>
+                    </div>
+                    <div class="fields-items flex-row">
+                        <label for="start-player">
+                            <div class="label-title">
+                                Jogador inicial:
+                            </div>
+                            <select name="start-player" id="start-player">
+                                <option value="random-player">Aleatório</option>
+                                <option value="player1">1º jogador</option>
+                                <option value="player2">2º jogador</option>
+                            </select>
+                        </label>
+                        <label for="timer">
+                            <div class="label-title">
+                                Timer:
+                            </div>                    
+                            <select name="timer" id="timer">
+                                <option value=null>-</option>
+                                <option value="6">6s</option>
+                                <option value="9">9s</option>
+                                <option value="12">12s</option>                          
+                            </select>
+                        </label>
+                    </div>                    
+                </div>
+                <div class="header-masthead">
+                    <button id="play">Jogar</button>
+                    <button id="clear">Limpar</button>
+                </div>
+        </header>
+        <main>
+            <div class="main-wrapper">
+                <div class="main-header">                    
+                    <div class="players-tags flex-row">                    
+                        <div class="player-tag flex-row " id="player1">
+                            <div class="player-name">Jogador 1</div>
+                            <div class="player-symbol">X</div>
+                        </div>
+                        <h1> X </h1>
+                        <div class="player-tag flex-row" id="player2">
+                            <div class="player-name">Jogador 2</div>
+                            <div class="player-symbol">O</div>
+                        </div>                        
+                    </div>
+                    <div class="clocks flex-row">
+                        <div class="timer flex-row">
+                            <i class="ph ph-timer"></i>
+                            <div id="timerClock">-</div> 
+                        </div>
+                        <div class="cronometer flex-row">
+                            <i class="ph ph-clock"></i>
+                            <div id="cronometerClock">00:00</div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-wrapper">
+                    <div class="game-content">
+                        <div class="spot" id="spot1"></div>
+                        <div class="spot" id="spot2"></div>
+                        <div class="spot" id="spot3"></div>
+                        <div class="spot" id="spot4"></div>
+                        <div class="spot" id="spot5"></div>
+                        <div class="spot" id="spot6"></div>
+                        <div class="spot" id="spot7"></div>
+                        <div class="spot" id="spot8"></div>
+                        <div class="spot" id="spot9"></div>
+                    </div>                   
+                </div>
+
+                <div class="game-results flex-column" id="results">
+                    <h3>FIM DE JOGO!</h3>
+                    <div class="result-wrapper">
+                        <div class="result-status"></div>
+                        <div class="result-time"></div>
+                    </div>   
+                    <button class="button" id="replay">Jogar novamente</button>                 
+                </div>
+            </div>            
+        </main>
+        <footer>
+            Jogo da Velha. All rights reserved &copy;. 2024. LeoCsBorges
+
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
