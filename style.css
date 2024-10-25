@@ -1,4 +1,5 @@
 @charset "UFT-8";
+
 @font-face {
     font-family: 'digital';
     src: url('digital.ttf');
@@ -58,20 +59,21 @@ header .header-head {
     gap: .4rem;
 }
 
-header .header-head h1 { 
-    font-size: 3rem; 
-    text-shadow: .1rem .1rem gray; 
+header .header-head h1 {
+    font-size: 3rem;
+    text-shadow: .1rem .1rem gray;
     font-variant: small-caps;
-} 
-header .header-head h2 { 
-    font-size: 1.2rem; 
-    text-shadow: .1rem .1rem gray; 
+}
+
+header .header-head h2 {
+    font-size: 1.2rem;
+    text-shadow: .1rem .1rem gray;
 }
 
 /* > header fields */
 header .header-fields {
     justify-content: center;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     padding-inline: 1rem;
     margin-block: 1.6rem;
     gap: 2rem;
@@ -96,7 +98,7 @@ header .header-fields select {
     outline-color: var(--first-color);
     color: grey;
     letter-spacing: .05rem;
-    box-shadow: inset .1rem .1rem .25rem rgba(0,0,0,.3);
+    box-shadow: inset .1rem .1rem .25rem rgba(0, 0, 0, .3);
 }
 
 header .header-fields input::placeholder,
@@ -142,7 +144,10 @@ main .main-header .players-tags {
     gap: 2rem;
 }
 
-main .main-header .players-tags h1 { font-size: 4rem; color: var(--first-color); }
+main .main-header .players-tags h1 {
+    font-size: 4rem;
+    color: var(--first-color);
+}
 
 main .main-header .player-tag {
     align-self: center;
@@ -150,8 +155,13 @@ main .main-header .player-tag {
     overflow: hidden;
 }
 
-main .main-header .player-tag.turn#player1 { border: .2rem solid rgb(3, 3, 187); }
-main .main-header .player-tag.turn#player2 { border: .2rem solid rgb(156, 0, 0)}
+main .main-header .player-tag.turn#player1 {
+    border: .2rem solid rgb(3, 3, 187);
+}
+
+main .main-header .player-tag.turn#player2 {
+    border: .2rem solid rgb(156, 0, 0)
+}
 
 main .main-header .player-tag .player-name {
     text-align: center;
@@ -160,17 +170,22 @@ main .main-header .player-tag .player-name {
     padding: .4rem .6rem;
     color: white;
     background-color: var(--first-color);
-    box-shadow: inset .1rem .1rem .25rem rgba(0,0,0,.2);
+    box-shadow: inset .1rem .1rem .25rem rgba(0, 0, 0, .2);
 }
 
 main .main-header .player-tag .player-symbol {
     padding: .4rem .4rem;
     background-color: var(--second-color);
-    box-shadow: inset 0 .1rem .25rem rgba(0,0,0,.2);
+    box-shadow: inset 0 .1rem .25rem rgba(0, 0, 0, .2);
 }
 
-main .main-header #player1 .player-symbol { color: rgb(3, 3, 187); }
-main .main-header #player2 .player-symbol { color: rgb(156, 0, 0); }
+main .main-header #player1 .player-symbol {
+    color: rgb(3, 3, 187);
+}
+
+main .main-header #player2 .player-symbol {
+    color: rgb(156, 0, 0);
+}
 
 main .main-header .clocks {
     justify-content: space-between;
@@ -188,7 +203,7 @@ main .main-header .clocks i {
 main .main-header .clocks .timer,
 main .main-header .clocks .cronometer {
     gap: .25rem;
-    align-items: center;    
+    align-items: center;
 }
 
 main .main-header .clocks .timer #timerClock,
@@ -204,7 +219,7 @@ main .game-wrapper {
     width: 20rem;
     height: 20rem;
     background-color: var(--first-color);
-    box-shadow: 0 0 .4rem rgba(0,0,0,.1);
+    box-shadow: 0 0 .4rem rgba(0, 0, 0, .1);
     margin-bottom: 2rem;
 }
 
@@ -215,6 +230,7 @@ main .game-content {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: .2rem;
+    user-select: none;
 }
 
 main .game-wrapper .spot {
@@ -230,7 +246,7 @@ main .game-wrapper .spot {
 main .game-results {
     margin: auto;
     margin-block: 2rem;
-    color: var(--first-color);   
+    color: var(--first-color);
     display: none;
     justify-content: center;
     align-items: center;

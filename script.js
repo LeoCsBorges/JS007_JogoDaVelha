@@ -15,21 +15,21 @@ let cronometerID
 let numberOfMoves = 0
 
 // [ BUTTONS ]
-playButton.addEventListener('click', function() {
+playButton.addEventListener('click', function () {
     if (inputNameToPlayerTag()) {
         playButton.style.pointerEvents = 'none'
         setPlayerToBegin(playerToStartDOM)
         setTimer()
-        setCronometer()       
+        setCronometer()
         gameStart(startingPlayer)
     }
 })
-    
-clearButton.addEventListener('click', function() {
+
+clearButton.addEventListener('click', function () {
     window.location.reload();
 })
 
-replayButton.addEventListener('click', function() {
+replayButton.addEventListener('click', function () {
     //clear the spots and timer/cronometer
     resultsDOM.style.display = 'none'
     let spots = document.getElementsByClassName('spot')
@@ -42,13 +42,13 @@ replayButton.addEventListener('click', function() {
     numberOfMoves = 0
     let p1Tag = document.getElementById('player1')
     let p2Tag = document.getElementById('player2')
-        p1Tag.classList.remove('turn')
-        p2Tag.classList.remove('turn')
-    
+    p1Tag.classList.remove('turn')
+    p2Tag.classList.remove('turn')
+
     //start again    
     setPlayerToBegin(playerToStartDOM)
     setTimer()
-    setCronometer()      
+    setCronometer()
     activateSpots()
     gameStart(startingPlayer)
 })
@@ -59,31 +59,31 @@ function gameStart() {
     let spots = document.getElementsByClassName('spot')
     let playerTags = document.getElementsByClassName('player-tag')
 
-    for (let spot of spots) {   
-        
+    for (let spot of spots) {
+
         //player inicial
-        for (let tag of playerTags) { 
+        for (let tag of playerTags) {
             if (tag.classList.contains('turn')) {
                 playerTurn = tag.id
             }
         }
-        
+
         //clicando nos spots
-        spot.addEventListener('click', function(){
-            
+        spot.addEventListener('click', function () {
+
             //pegando o simbolo do playerTurn
             let markup = document.getElementById(playerTurn)
             markup = markup.getElementsByClassName('player-symbol')
             markup = markup[0].innerHTML
 
             //fazendo a marcacao e contandos as jogadas
-            if (spot.textContent == '') {                
+            if (spot.textContent == '') {
                 spot.textContent = markup
                 numberOfMoves += 1
 
             } else {
                 return
-            }          
+            }
 
             //verificar vencedor e finalizar function se 'true'
             if (verifyWinner(numberOfMoves, spots, playerTurn)) {
@@ -110,64 +110,64 @@ function gameStart() {
 function verifyWinner(moves, spots, player) {
     //verificando as possibilidades de vitoria e quantidade de jogadas
     if (moves <= 9) {
-        
+
         //horizontais
         if ((spots[0].innerHTML == 'X' && spots[1].innerHTML == 'X' && spots[2].innerHTML == 'X') ||
             (spots[0].innerHTML == 'O' && spots[1].innerHTML == 'O' && spots[2].innerHTML == 'O')) {
-                redMarkup(spots[0], spots[1], spots[2])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[0], spots[1], spots[2])
+            showWinner(player, true)
+            return true
         }
 
         if ((spots[3].innerHTML == 'X' && spots[4].innerHTML == 'X' && spots[5].innerHTML == 'X') ||
             (spots[3].innerHTML == 'O' && spots[4].innerHTML == 'O' && spots[5].innerHTML == 'O')) {
-                redMarkup(spots[3], spots[4], spots[5])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[3], spots[4], spots[5])
+            showWinner(player, true)
+            return true
         }
 
         if ((spots[6].innerHTML == 'X' && spots[7].innerHTML == 'X' && spots[8].innerHTML == 'X') ||
             (spots[6].innerHTML == 'O' && spots[7].innerHTML == 'O' && spots[8].innerHTML == 'O')) {
-                redMarkup(spots[6], spots[7], spots[8])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[6], spots[7], spots[8])
+            showWinner(player, true)
+            return true
         }
 
         //verticiais
         if ((spots[0].innerHTML == 'X' && spots[3].innerHTML == 'X' && spots[6].innerHTML == 'X') ||
             (spots[0].innerHTML == 'O' && spots[3].innerHTML == 'O' && spots[6].innerHTML == 'O')) {
-                redMarkup(spots[0], spots[3], spots[6])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[0], spots[3], spots[6])
+            showWinner(player, true)
+            return true
         }
 
         if ((spots[1].innerHTML == 'X' && spots[4].innerHTML == 'X' && spots[7].innerHTML == 'X') ||
             (spots[1].innerHTML == 'O' && spots[4].innerHTML == 'O' && spots[7].innerHTML == 'O')) {
-                redMarkup(spots[1], spots[4], spots[7])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[1], spots[4], spots[7])
+            showWinner(player, true)
+            return true
         }
 
         if ((spots[2].innerHTML == 'X' && spots[5].innerHTML == 'X' && spots[8].innerHTML == 'X') ||
             (spots[2].innerHTML == 'O' && spots[5].innerHTML == 'O' && spots[8].innerHTML == 'O')) {
-                redMarkup(spots[2], spots[5], spots[8])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[2], spots[5], spots[8])
+            showWinner(player, true)
+            return true
         }
 
         //diagonais
         if ((spots[0].innerHTML == 'X' && spots[4].innerHTML == 'X' && spots[8].innerHTML == 'X') ||
             (spots[0].innerHTML == 'O' && spots[4].innerHTML == 'O' && spots[8].innerHTML == 'O')) {
-                redMarkup(spots[0], spots[4], spots[8])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[0], spots[4], spots[8])
+            showWinner(player, true)
+            return true
         }
 
         if ((spots[2].innerHTML == 'X' && spots[4].innerHTML == 'X' && spots[6].innerHTML == 'X') ||
             (spots[2].innerHTML == 'O' && spots[4].innerHTML == 'O' && spots[6].innerHTML == 'O')) {
-                redMarkup(spots[2], spots[4], spots[6])
-                showWinner(player, true)
-                return true
+            redMarkup(spots[2], spots[4], spots[6])
+            showWinner(player, true)
+            return true
         }
 
         //velha
@@ -175,7 +175,7 @@ function verifyWinner(moves, spots, player) {
             showWinner(player, false)
             return true
         }
-    } 
+    }
 }
 
 function inputNameToPlayerTag() {
@@ -200,7 +200,7 @@ function setPlayerToBegin(player) {
     let p1Tag = document.getElementById('player1')
     let p2Tag = document.getElementById('player2')
 
-    switch(player.value) {
+    switch (player.value) {
         case 'player1':
             p1Tag.classList.add('turn')
             startingPlayer = 0
@@ -216,8 +216,8 @@ function setPlayerToBegin(player) {
             if (randomValue == 0) {
                 p1Tag.classList.add('turn')
                 startingPlayer = 0
-            } 
-    
+            }
+
             if (randomValue == 1) {
                 p2Tag.classList.add('turn')
                 startingPlayer = 1
@@ -234,19 +234,19 @@ function setTimer() {
     let seconds = timerDOM.value
     let timer = document.getElementById('timerClock')
     let spots = document.getElementsByClassName('spot')
-    
+
     if (seconds == 'null') {
         timer.textContent = `-`
         return
 
     } else {
-        timerID = setInterval(function() {
+        timerID = setInterval(function () {
             if (seconds == 0) {
                 timer.textContent = `00`
                 allRedMarkup(spots)
                 endGame()
                 showLoser(playerTurn)
-                return 
+                return
             } else {
                 if (seconds < 10) {
                     timer.textContent = `0${seconds}`
@@ -256,14 +256,14 @@ function setTimer() {
                 seconds -= 1
             }
         }, 1000)
-    }    
+    }
 }
 
 function setCronometer() {
     let seconds = 0
     let minutes = 0
-    
-    cronometerID = setInterval(function() {
+
+    cronometerID = setInterval(function () {
         seconds += 1
 
         if (seconds == 60) {
@@ -277,10 +277,10 @@ function setCronometer() {
         } else if (minutes < 10) {
             cronometerDOM.textContent = `0${minutes}:${seconds}`
         } else if (seconds < 10) {
-            cronometerDOM.textContent = `${minutes}:0${seconds}`            
+            cronometerDOM.textContent = `${minutes}:0${seconds}`
         } else {
             cronometerDOM.textContent = `${minutes}:${seconds}`
-        }      
+        }
     }, 1000)
 }
 
@@ -289,8 +289,8 @@ function showLoser(player) {
     let status = resultsDOM.getElementsByClassName('result-status')
     let time = resultsDOM.getElementsByClassName('result-time')
     let playerDOM = document.getElementById(player)
-        playerDOM = playerDOM.getElementsByClassName('player-name')
-        playerDOM = playerDOM[0].innerHTML
+    playerDOM = playerDOM.getElementsByClassName('player-name')
+    playerDOM = playerDOM[0].innerHTML
 
     gameResults[0].style.display = 'flex'
     status[0].innerHTML = `Resultado: O(a) jogador(a) <strong>${playerDOM}</strong> perdeu!`
@@ -303,8 +303,8 @@ function showWinner(player, boolean) {
     let cronometer = cronometerDOM.innerHTML
     let time = resultsDOM.getElementsByClassName('result-time')
     let playerDOM = document.getElementById(player)
-        playerDOM = playerDOM.getElementsByClassName('player-name')
-        playerDOM = playerDOM[0].innerHTML
+    playerDOM = playerDOM.getElementsByClassName('player-name')
+    playerDOM = playerDOM[0].innerHTML
 
     //algum vencedor
     if (boolean) {
@@ -312,7 +312,7 @@ function showWinner(player, boolean) {
         status[0].innerHTML = `Resultado: O(a) jogador(a) <strong>${playerDOM}</strong> venceu!`
         time[0].innerHTML = `Tempo: ${cronometer}`
 
-    //velha
+        //velha
     } else {
         gameResults[0].style.display = 'flex'
         status[0].innerHTML = `Resultado: VELHA!`
@@ -326,13 +326,13 @@ function redMarkup(spot1, spot2, spot3) {
     spot3.style.color = 'red'
 }
 
-function allRedMarkup(spots){
+function allRedMarkup(spots) {
     for (let spot of spots) {
         spot.style.color = 'red'
     }
 }
 
-function allBlackMarkup(spots){
+function allBlackMarkup(spots) {
     for (let spot of spots) {
         spot.style.color = 'black'
     }
@@ -353,7 +353,7 @@ function endGame() {
         clearInterval(cronometerID)
         cronometerDOM.textContent = `00:00`
     }
-    
+
     function deactivateSpots() {
         let gameWrapper = document.getElementsByClassName('game-wrapper')
         gameWrapper[0].style.pointerEvents = 'none'
